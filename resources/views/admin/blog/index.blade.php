@@ -10,15 +10,21 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Data Blog</h1>
-        </div>
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Data Semua Blog   </h6>
+            <!-- success alert -->
+            @if (session('success'))
+                <div class="alert alert-success col-lg-6 mt-3" role="alert">
+                    {{ session('success') }}
                 </div>
+            @endif
+        </div>
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Data Semua Blog</h6>
+            </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                        <div class="row mb-4">
+                            <div class="row mb-4">
                                 <div class="col-sm-12 col-md-6">
                                     <a href="{{ route('admin.blog.create') }}" class="btn btn-primary btn-sm">Tambah Blog</a>
                                 </div>
@@ -73,6 +79,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </div>
 </div>
 

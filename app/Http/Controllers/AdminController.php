@@ -26,4 +26,10 @@ class AdminController extends Controller
 
         return view('admin.dashboard', compact('siswa', 'guru', 'admin'));
     }
+
+    // about
+    public function about()
+    {
+        return view('admin.about');
+    }
 }

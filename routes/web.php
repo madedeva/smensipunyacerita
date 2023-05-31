@@ -8,7 +8,7 @@ use App\Http\Controllers\CurhatController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\CatecoryController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +23,6 @@ use App\Http\Controllers\CatecoryController;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('welcome');
 
-Route::get('/dashboard', function () {
-    return view('error.errors');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -38,6 +34,7 @@ require __DIR__.'/auth.php';
 Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     // admin
     Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/about', [AdminController::class, 'about'])->name('admin.about');
 
     // profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('admin.profile.edit');
@@ -66,12 +63,12 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::post('/import_excel', [UserController::class, 'import_excel'])->name('admin.users.import_excel');
 
     // category
-    Route::get('/blog/category', [App\Http\Controllers\CatecoryController::class, 'index'])->name('admin.category.index');
-    Route::get('/blog/category/create', [App\Http\Controllers\CatecoryController::class, 'create'])->name('admin.category.create');
-    Route::post('/blog/category', [App\Http\Controllers\CatecoryController::class, 'store'])->name('admin.category.store');
-    Route::get('/blog/category/{category:id}/edit', [App\Http\Controllers\CatecoryController::class, 'edit'])->name('admin.category.edit');
-    Route::put('/category/{category:id}', [App\Http\Controllers\CatecoryController::class, 'update'])->name('admin.category.update');
-    Route::delete('/category/{category:id}', [App\Http\Controllers\CatecoryController::class, 'destroy'])->name('admin.category.destroy');
+    Route::get('/blog/category', [App\Http\Controllers\CategoryController::class, 'index'])->name('admin.category.index');
+    Route::get('/blog/category/create', [App\Http\Controllers\CategoryController::class, 'create'])->name('admin.category.create');
+    Route::post('/blog/category', [App\Http\Controllers\CategoryController::class, 'store'])->name('admin.category.store');
+    Route::get('/blog/category/{category:id}/edit', [App\Http\Controllers\CategoryController::class, 'edit'])->name('admin.category.edit');
+    Route::put('/category/{category:id}', [App\Http\Controllers\CategoryController::class, 'update'])->name('admin.category.update');
+    Route::delete('/category/{category:id}', [App\Http\Controllers\CategoryController::class, 'destroy'])->name('admin.category.destroy');
 
     // blog
     Route::get('/blog', [App\Http\Controllers\BlogController::class, 'index'])->name('admin.blog.index');

@@ -25,7 +25,7 @@
                 <form action="{{ route('admin.curhat.update', $curhat->id) }}" method="POST">
                     @csrf
                     @method('PUT')
-                    <input id="feedback" type="hidden" name="feedback">
+                    <input id="feedback" type="hidden" name="feedback" value="{{ old('feedback', $curhat->feedback) }}">
                     <trix-editor input="feedback"></trix-editor>
                     <!-- <textarea id="cerita" name="feedback">{{ $curhat->feedback }}</textarea> -->
                     <button type="submit" class="btn btn-primary btn-sm mt-4">Kirim balasan</button>

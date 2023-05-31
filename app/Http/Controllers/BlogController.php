@@ -99,9 +99,22 @@ class BlogController extends Controller
             'judul' => 'required',
             'slug' => 'required',
             'deskripsi' => 'required',
+            'excerpt' => 'required',
             'gambar' => 'required',
             'category_id' => 'required'
         ]);
+
+        // file gambar baru
+        if ($file = $request->file('gambar')) {
+            $destinationPath = 'blogs/';
+            $profileImage = date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $profileImage);
+            $input['gambar'] = "$profileImage";
+        }else{
+            // upload gambar dari database jika tidak ada gambar yang diupload
+            $blog = Blog::findOrFail($id);
+            $input['gambar'] = $blog->gambar;
+        }
 
         $blog = Blog::findOrFail($id);
         $blog->update([
@@ -109,7 +122,8 @@ class BlogController extends Controller
             'judul' => $request->input('judul'),
             'slug' => Str::slug($request->judul),
             'deskripsi' => $request->input('deskripsi'),
-            'gambar' => $request->input('gambar'),
+            'excerpt' => Str::limit(strip_tags($request->deskripsi), 100),
+            'gambar' => $input['gambar'],
             'category_id' => $request->input('category_id')
         ]);
 

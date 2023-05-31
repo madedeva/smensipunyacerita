@@ -12,15 +12,6 @@
                 @else
                 <li class="nav-item {{ request()->is('curhat*') ? 'active' : '' }}"><a href="{{ route('curhat.create') }}" class="nav-link">Curhat</a></li>
 				<li class="nav-item {{ request()->is('blog*') ? 'active' : '' }}"><a href="/blog" class="nav-link">Blog</a></li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="peraturanDropdown" role="button" data-toggle="dropdown">
-						Peraturan
-					</a>
-					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="peraturanDropdown">
-						<a class="dropdown-item" href="#">Peraturan Pengguna</a>
-						<a class="dropdown-item" href="#">Sanksi</a>
-					</div>
-				</li>
                 @endguest
 	        </ul>
             @guest

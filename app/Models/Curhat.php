@@ -14,6 +14,7 @@ class Curhat extends Model
         'title',
         'slug',
         'cerita',
+        'excerpt',
         'status',
         'feedback',
     ];

@@ -32,15 +32,16 @@
                         @csrf
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="form-label">Judul</label>
-                            <input type="text" class="form-control" id="judul" name="judul">
+                            <input type="text" class="form-control" id="judul" name="judul" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="form-label">Thumbnail</label>
-                            <input type="file" class="form-control" id="gambar" name="gambar">
+                            <img class="img-preview img-fluid mb-3" width="25%">
+                            <input type="file" class="form-control" id="gambar" name="gambar" onchange="previewImage()" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="form-label">Pilih Kategori</label>
-                            <select class="custom-select" id="category_id" name="category_id">
+                            <select class="custom-select" id="category_id" name="category_id" required>
                                 <option selected>Pilih kategori...</option>
                                 @foreach ($category as $ct)
                                     <option value="{{ $ct->id }}">{{ $ct->name }}</option>
@@ -59,5 +60,21 @@
         </div>
     </div>
 </div>
+
+<script>
+    function previewImage() {
+        const gambar = document.querySelector('#gambar');
+        const imgPreview = document.querySelector('.img-preview');
+
+        imgPreview.style.display = 'block';
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(gambar.files[0]);
+
+        oFReader.onload = function(oFREvent){
+            imgPreview.src = oFREvent.target.result;
+        }
+    }
+</script>
 
 @endsection

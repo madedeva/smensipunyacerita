@@ -52,7 +52,7 @@
                 <div class="mb-3 mt-3">
                     <input type="text" name="title" class="form-control" id="title" placeholder="Topik" required>
                   </div>
-                    <input id="cerita" type="hidden" name="cerita" required>
+                    <input id="cerita" type="hidden" name="cerita" required="required">
                     <trix-editor input="cerita"></trix-editor>
                   <!-- <textarea id="cerita" name="cerita" require></textarea> -->
                   <div class="option mb-3 mt-3">

@@ -17,10 +17,10 @@
                 </div>
             @endif
         </div>
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Daftar Kategori Blog</h6>
-                </div>
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Daftar Kategori Blog</h6>
+            </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
@@ -47,10 +47,10 @@
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $ct->name }}</td>
                                                     <td>
-                                                        <a href="{{ route('admin.category.edit', $ct->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                                    <a href="{{ route('admin.category.edit', $ct->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                                         <form action="{{ route('admin.category.destroy', $ct->id) }}" method="POST" class="d-inline">
-                                                            @csrf
-                                                            @method('DELETE')
+                                                        @csrf
+                                                        @method('DELETE')
                                                             <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">Hapus</button>
                                                         </form>
                                                     </td>
@@ -65,7 +65,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Import Excel -->
             <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -93,7 +92,8 @@
                     </form>
                 </div>
             </div>
-
+            <!-- End Import Excel -->
+        </div>
     </div>
 </div>
 

@@ -33,6 +33,7 @@ class CurhatController extends Controller
             'title' => 'required',
             'slug' => 'required',
             'cerita' => 'required',
+            'excerpt' => 'required',
             'status' => 'required',
             'feedback' => 'required'
         ]);
@@ -42,9 +43,14 @@ class CurhatController extends Controller
             'title' => $request->input('title'),
             'slug' => Str::slug($request->title),
             'cerita' => $request->input('cerita'),
+            'excerpt' => Str::limit(strip_tags($request->cerita), 100),
             'status' => $request->input('status'),
             'feedback' => $request->input('feedback')
         ]);
+
+        if($data->fails()){
+            return redirect()->back()->withErrors($data->errors());
+        }
 
         return redirect()->route('curhat.mycurhat')->with('success', 'Curhat berhasil ditambahkan');
     }

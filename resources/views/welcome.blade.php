@@ -43,7 +43,7 @@
 			<div class="container">
 				<div class="row justify-content-center mb-5 pb-2">
           			<div class="col-md-8 text-center heading-section ftco-animate">
-            			<h2 class="mb-4">Manfaat Curhat Online</h2>
+            			<h2 class="mb-4">Manfaat Berbagi Cerita</h2>
                   <p>Smensi punya cerita merupakan website yang menyediakan tempat bagi siswa untuk berbagi cerita dengan kerahasiaan identitas. Berikut beberapa manfaat membagikan cerita kepada orang lain.</p>
           			</div>
         		</div>
@@ -115,9 +115,13 @@
                   	<span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
-                    <p>{{ $item->title }}</p>
-                    <!-- selengkapnya -->
-                    <a href="{{ route('curhat.showDetail', $item->slug) }}" class=" py-3 mt-3">Selengkapnya</a>
+                    <span>{{ $item->title }}</span>
+                    <a href="{{ route('curhat.showDetail', $item->slug) }}">
+                      <p class="text-muted">{{ $item->excerpt }}</p>
+                    </a>
+                    <p class="text-muted mt-6">
+                      {{ $item->created_at->diffForHumans() }}
+                    </p>
                   </div>
                 </div>
               </div>

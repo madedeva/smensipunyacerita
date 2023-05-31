@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('cerita');
+            $table->text('excerpt');
             $table->enum('status', ['public', 'private']);
             $table->text('feedback')->default('Tidak ada');
             $table->timestamps();
