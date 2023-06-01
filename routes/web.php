@@ -43,6 +43,7 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
 
     // curhat
     Route::get('/curhat', [App\Http\Controllers\AdminCurhatController::class, 'index'])->name('admin.curhat.index');
+    Route::get('/curhat/{curhat:id}', [App\Http\Controllers\AdminCurhatController::class, 'show'])->name('admin.curhat.show');
     Route::get('/balas/{curhat:id}', [App\Http\Controllers\AdminCurhatController::class, 'edit'])->name('admin.curhat.edit');
     Route::put('/balas/{curhat:id}', [App\Http\Controllers\AdminCurhatController::class, 'update'])->name('admin.curhat.update');
     Route::delete('/delete/{curhat:id}', [App\Http\Controllers\AdminCurhatController::class, 'destroy'])->name('admin.curhat.destroy');

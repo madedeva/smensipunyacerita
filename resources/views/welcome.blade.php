@@ -115,7 +115,7 @@
                   	<span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
-                    <span>{{ $item->title }}</span>
+                    <strong>{{ $item->title }}</strong>
                     <a href="{{ route('curhat.showDetail', $item->slug) }}">
                       <p class="text-muted">{{ $item->excerpt }}</p>
                     </a>

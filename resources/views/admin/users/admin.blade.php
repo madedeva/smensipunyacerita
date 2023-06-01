@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 
-@section('title', 'Dashboard')
+@section('title', 'Akun Admin')
 
 @section('content')
 

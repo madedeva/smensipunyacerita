@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 
-@section('title', 'Dashboard')
+@section('title', 'Cerita Siswa')
 
 @section('content')
 
@@ -57,6 +57,8 @@
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
                                                         </form>
+                                                        <!-- show -->
+                                                        <a href="{{ route('admin.curhat.show', $curhat->id) }}" class="btn btn-info btn-sm">Detail</a>
                                                     </td>
                                                 </tr>
                                                 @endforeach

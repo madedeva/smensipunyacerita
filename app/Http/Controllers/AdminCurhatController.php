@@ -42,6 +42,10 @@ class AdminCurhatController extends Controller
         return redirect()->route('admin.curhat.index')->with('success', 'Curhat berhasil diupdate');
     }
 
+    public function show(Curhat $curhat){
+        return view('admin.curhat.show', compact('curhat'));
+    }
+
     public function destroy(Curhat $curhat){
         $curhat->delete();
         return redirect()->route('admin.curhat.index')->with('success', 'Curhat berhasil dihapus');

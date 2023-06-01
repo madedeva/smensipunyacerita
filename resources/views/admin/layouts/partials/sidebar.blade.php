@@ -117,7 +117,7 @@
             @endif
 
             <!-- nav item system info -->
-            <li class="nav-item">
+            <li class="nav-item {{ request()->is('admin/about*') ? 'active' : '' }}">
                 <a class="nav-link" href="/admin/about">
                     <i class="fas fa-fw fa-info-circle"></i>
                     <span>About</span>

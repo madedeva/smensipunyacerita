@@ -43,6 +43,7 @@
                                 <img class="img-preview img-fluid mb-3">
                             @endif
                             <input type="file" class="form-control" id="gambar" name="gambar" onchange="previewImage()">
+                            <input type="hidden" name="gambar" value="{{ $blog->gambar }}">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="form-label">Pilih Kategori</label>

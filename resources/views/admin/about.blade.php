@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 
-@section('title', 'Dashboard')
+@section('title', 'About System')
 
 @section('content')
 
@@ -21,12 +21,13 @@
                         <!-- Illustrations -->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">About System Information Details</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">System Information Details</h6>
                             </div>
                             <div class="card-body">
                                 <p>Tim Pengembang: <strong>KKN Kependidikan 2023</strong></p>
                                 <p>Lokasi: <strong>SMK Negeri 1 Singaraja</strong></p>
-                                <p>Sistem ini dikembangkan dengan PHP Framework <a href="https://laravel.com/">Laravel 9.0</a>. Kunjungi laman github <a href="https://github.com/madedeva/smensipunyacerita">disini</a></p>
+                                <p>Sistem ini dikembangkan dengan PHP Framework <strong><a class="text-decoration-none" href="https://laravel.com/">Laravel 9.</a>
+                                </strong>Kunjungi laman github repository <strong><a class="text-decoration-none" href="https://github.com/madedeva/smensipunyacerita">disini.</a></strong></p>
                             </div>
                         </div>
                     </div>
