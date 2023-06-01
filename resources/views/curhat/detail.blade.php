@@ -46,25 +46,43 @@
 			<div class="container">
 				<div class="row d-flex">
 					<div class="col-md-12 wrap-about ftco-animate fadeInUp ftco-animated">
-          	            <h2 class="mb-4">{{ $curhatdetail->title }}</h2>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="meta">
-                                    <div><a href="#"><span class="icon-calendar"></span> {{ $curhatdetail->created_at->format('d M Y') }}</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <p>{!! $curhatdetail->cerita !!}</p>
+          	<h2 class="mb-4">{{ $curhatdetail->title }}</h2>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="meta">
+                    <div><a href="#"><span class="icon-calendar"></span> {{ $curhatdetail->created_at->format('d M Y') }}</a></div>
+                  </div>
+                </div>
+              </div>
+                <p>{!! $curhatdetail->cerita !!}</p>
 				    </div>
-                    <div class="col-md-12 wrap-about ftco-animate fadeInUp ftco-animated">
-                        <div class="row">
-                            <div class="col-md-12 mt-4">
-                                <a href="{{ route('welcome') }}" class="btn btn-primary">Kembali</a>
-                            </div>
-                        </div>
-                    </div>
-				</div>
-			</div>
+              <div class="col-md-6 wrap-about ftco-animate fadeInUp ftco-animated">
+                <h3 class="mb-3">Komentar</h3>
+                @include('curhat.commentsDisplay', ['comments' => $curhatdetail->comments, 'curhat_id' => $curhatdetail->id])
+
+                <hr/>
+                <form method="post" action="{{ route('comment.store') }}">
+                  @csrf
+                  <div class="form-group">
+                    <textarea class="form-control" name="body"></textarea>
+                    <input type="hidden" name="post_id" value="{{ $curhatdetail->id }}" />
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" class="btn btn-success" value="Tambah Komentar" />
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-12 wrap-about ftco-animate fadeInUp ftco-animated">
+                <div class="row">
+                  <div class="col-md-12 mt-4">
+                    <a href="{{ route('welcome') }}" class="btn btn-primary">Kembali</a>
+                  </div>
+                </div>
+              </div>
+				    </div>
+			    </div>
+        </div>
+      </div> 
 		</section>
 
 

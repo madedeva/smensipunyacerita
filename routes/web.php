@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,6 +91,9 @@ Route::get('/cerita_saya/{curhat:id}', [App\Http\Controllers\HomeController::cla
 Route::get('/cerita_saya', [App\Http\Controllers\HomeController::class, 'mycurhat'])->name('curhat.mycurhat');
 Route::delete('/curhat/{curhat:id}', [App\Http\Controllers\CurhatController::class, 'destroy'])->name('curhat.destroy');
 Route::get('/curhat/{curhat:id}', [App\Http\Controllers\CurhatController::class, 'showDetail'])->name('curhat.showDetail');
+
+// comment
+Route::post('curhat/comment', [App\Http\Controllers\CommentController::class, 'store'])->name('comment.store');
 
 // blog
 Route::get('/blog', [App\Http\Controllers\HomeController::class, 'blog'])->name('blog.index');

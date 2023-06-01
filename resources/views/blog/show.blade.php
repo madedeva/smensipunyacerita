@@ -48,7 +48,7 @@
                                 </div>
                                 <!-- get image with radius -->
                                 <div class="text-left mt-3">
-                                    <img src="{{ asset('blogs/'.$blog->gambar) }}" alt="" class="img-fluid rounded" width="50%">
+                                    <img src="{{ asset('blogs/'.$blog->gambar) }}" alt="" class="img-fluid rounded">
                                 </div>
                             </div>
                         </div>

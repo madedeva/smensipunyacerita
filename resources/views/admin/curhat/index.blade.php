@@ -45,11 +45,9 @@
                                                     <td>{{ $curhat->status }}</td>
                                                     <td>{{ $curhat->created_at->format('d M Y') }}</td>
                                                     <td>
-                                                        <!-- if feedback value 'Tidak ada' -> btn warning, else btn success on edit -->
                                                         @if($curhat->feedback == 'Tidak ada')
                                                         <a href="{{ route('admin.curhat.edit', $curhat->id) }}" class="btn btn-warning btn-sm">Balas</a>
                                                         @else
-                                                        <!-- btn but cant click -->
                                                         <a href="#" class="btn btn-success btn-sm disabled">Sudah dibalas</a>
                                                         @endif
                                                         <form action="{{ route('admin.curhat.destroy', $curhat->id) }}" method="POST" style="display: inline-block;">
@@ -57,7 +55,6 @@
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
                                                         </form>
-                                                        <!-- show -->
                                                         <a href="{{ route('admin.curhat.show', $curhat->id) }}" class="btn btn-info btn-sm">Detail</a>
                                                     </td>
                                                 </tr>

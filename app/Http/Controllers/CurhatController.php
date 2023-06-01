@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Curhat;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 
@@ -70,4 +71,19 @@ class CurhatController extends Controller
         $curhatdetail = Curhat::where('slug', $slug)->firstorfail();
         return view('curhat.detail', compact('curhatdetail'));
     }
+
+    // comment
+    // public function comment(Request $request){
+    //     $request->validate([
+    //         'body'=>'required',
+    //     ]);
+
+    //     $input = $request->all();
+    //     $input['user_id'] = auth()->user()->id;
+    
+    //     Comment::create($input);
+
+    //     // return back();
+    //     return redirect()->route('curhat.show', $input['post_id']);
+    // }
 }

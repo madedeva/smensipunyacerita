@@ -23,6 +23,7 @@ return new class extends Migration
             $table->enum('status', ['public', 'private']);
             $table->text('feedback')->default('Tidak ada');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
