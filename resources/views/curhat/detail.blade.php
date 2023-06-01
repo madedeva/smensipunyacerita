@@ -64,11 +64,11 @@
                 <form method="post" action="{{ route('comment.store') }}">
                   @csrf
                   <div class="form-group">
-                    <textarea class="form-control" name="body"></textarea>
-                    <input type="hidden" name="post_id" value="{{ $curhatdetail->id }}" />
+                    <textarea class="form-control" name="body" placeholder="Tambahkan komentar.."></textarea>
+                    <input type="hidden" name="curhat_id" value="{{ $curhatdetail->id }}" />
                   </div>
                   <div class="form-group">
-                    <input type="submit" class="btn btn-success" value="Tambah Komentar" />
+                    <input type="submit" class="btn btn-success" value="Kirim" />
                   </div>
                 </form>
               </div>

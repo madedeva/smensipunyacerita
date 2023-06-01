@@ -53,7 +53,9 @@ class CurhatController extends Controller
             return redirect()->back()->withErrors($data->errors());
         }
 
-        return redirect()->route('curhat.mycurhat')->with('success', 'Curhat berhasil ditambahkan');
+        return view('curhat.mycurhat', compact('curhat'))->with('success', 'Curhat berhasil ditambahkan');
+
+        // return redirect()->route('curhat.mycurhat')->with('success', 'Curhat berhasil ditambahkan');
     }
 
     public function show($slug){
@@ -71,19 +73,4 @@ class CurhatController extends Controller
         $curhatdetail = Curhat::where('slug', $slug)->firstorfail();
         return view('curhat.detail', compact('curhatdetail'));
     }
-
-    // comment
-    // public function comment(Request $request){
-    //     $request->validate([
-    //         'body'=>'required',
-    //     ]);
-
-    //     $input = $request->all();
-    //     $input['user_id'] = auth()->user()->id;
-    
-    //     Comment::create($input);
-
-    //     // return back();
-    //     return redirect()->route('curhat.show', $input['post_id']);
-    // }
 }
