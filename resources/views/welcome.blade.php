@@ -4,13 +4,13 @@
 
 @section('content')
     <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image:url(images/curhat1.jpeg);">
+      <div class="slider-item" style="background-image:url(images/smensi.jpeg);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
           <div class="col-md-7 ftco-animate">
           	<span class="subheading">Smensi Punya Cerita</span>
-            <h1 class="mb-4">Layanan Curhat Online Smensi</h1>
+            <h1 class="mb-4">Bagikan Ceritamu di Smensi Punya Cerita</h1>
             @if (Auth::check())
             <p><a href="/curhat" class="btn btn-primary px-4 py-3 mt-3">Bagikan Cerita</a></p>
             @else
@@ -21,13 +21,13 @@
         </div>
       </div>
 
-      <div class="slider-item" style="background-image:url(images/curhat1.jpeg);">
+      <div class="slider-item" style="background-image:url(images/smensi3.jpeg);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
           <div class="col-md-7 ftco-animate">
-          	<span class="subheading">Bercerita Dimana Saja</span>
-            <h1 class="mb-4">Bebas Curhat Dengan Kerahasiaan Identitas</h1>
+          	<span class="subheading">Smensi Punya Cerita</span>
+            <h1 class="mb-4">Sebagai Kampanye Sekolah Ramah Anak</h1>
             @if (Auth::check())
             <p><a href="/curhat" class="btn btn-primary px-4 py-3 mt-3">Bagikan Cerita</a></p>
             @else

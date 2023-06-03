@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Blog;
 use App\Models\Category;
+use File;
 
 class BlogController extends Controller
 {
@@ -104,16 +105,11 @@ class BlogController extends Controller
             'category_id' => 'required'
         ]);
 
-        // file gambar baru
         if ($file = $request->file('gambar')) {
             $destinationPath = 'blogs/';
             $profileImage = date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $profileImage);
             $input['gambar'] = "$profileImage";
-        }else{
-            // upload gambar dari database jika tidak ada gambar yang diupload
-            $blog = Blog::findOrFail($id);
-            $input['gambar'] = $blog->gambar;
         }
 
         $blog = Blog::findOrFail($id);
@@ -140,6 +136,12 @@ class BlogController extends Controller
     public function destroy($id)
     {
         $blog = Blog::findOrFail($id);
+        
+        $image_path = public_path("blogs/{$blog->gambar}");
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
+
         $blog->delete();
 
         if($blog){
@@ -150,4 +152,5 @@ class BlogController extends Controller
             return redirect()->route('admin.blog.index')->with(['error' => 'Data Gagal Dihapus!']);
         }
     }
+    
 }

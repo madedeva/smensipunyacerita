@@ -19,6 +19,5 @@ class CommentController extends Controller
         Comment::create($input);
    
         return back();
-        // return redirect()->route('curhat.show', $input['curhat_id']);
     }
 }

@@ -47,7 +47,9 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-2 bread">Blog Terbaru</h1>
+            <h1 class="mb-2 bread">Blog</h1>
+            <!-- get route name -->
+            <p class="breadcrumbs"><span class="mr-2"><a href="{{ route('welcome') }}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i class="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
       </div>
@@ -61,7 +63,7 @@
           <div class="col-md-6 col-lg-4 ftco-animate">
             <div class="blog-entry">
                 <a href="{{ route('blog.show', $blog->slug) }}" class="block-20 d-flex align-items-end" style="background-image: url('{{ asset('blogs/'.$blog->gambar) }}');">
-				<div class="meta-date text-center p-2">
+				        <div class="meta-date text-center p-2">
                     <span class="day">{{ $blog->created_at->format('d') }}</span>
                     <span class="mos">{{ $blog->created_at->format('M') }}</span>
                     <span class="yr">{{ $blog->created_at->format('Y') }}</span>

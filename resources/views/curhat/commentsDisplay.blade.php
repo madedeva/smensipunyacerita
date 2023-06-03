@@ -10,7 +10,7 @@
                 <input type="hidden" name="parent_id" value="{{ $comment->id }}" />
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-warning" value="Balas" />
+                <input type="submit" class="btn btn-success" value="Balas" />
             </div>
         </form>
         @include('curhat.commentsDisplay', ['comments' => $comment->replies])
