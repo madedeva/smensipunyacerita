@@ -62,7 +62,7 @@ class UserController extends Controller
             'password' => Hash::make($request->input('password')),
         ]);
 
-        return redirect()->route('admin.users.create')->with('success', 'User berhasil ditambahkan');
+        return redirect()->route('admin.dashboard')->with('success', 'User berhasil ditambahkan');
     }
 
     // edit
@@ -93,27 +93,18 @@ class UserController extends Controller
 
     public function import_excel(Request $request) 
 	{
-		// validasi
-		$this->validate($request, [
-			'file' => 'required|mimes:csv,xls,xlsx'
-		]);
- 
-		// menangkap file excel
-		$file = $request->file('file');
- 
-		// membuat nama file unik
-		$nama_file = rand().$file->getClientOriginalName();
- 
-		// upload ke folder file_siswa di dalam folder public
-		$file->move('file_import',$nama_file);
- 
-		// import data
-        Excel::import(new UserImport, public_path('/file_import/'.$nama_file));
- 
-		// notifikasi dengan session
-		// Session::flash('sukses','Data User Berhasil Diimport!');
-        
-		// alihkan halaman kembali
+        Excel::import(new UserImport, $request->file('file')->store('file_import'));
+        // return back();
+		// $this->validate($request, [
+		// 	'file' => 'required|mimes:csv,xls,xlsx'
+		// ]);
+
+		// $file = $request->file('file');
+		// $nama_file = rand().$file->getClientOriginalName();
+		// $file->move('file_import',$nama_file);
+
+        // Excel::import(new UserImport, public_path('/file_import/'.$nama_file));
+
 		return redirect()->route('admin.users.index')->with('success', 'User berhasil diimport');
 	}
 }

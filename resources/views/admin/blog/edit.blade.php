@@ -12,7 +12,7 @@
                 @if (session('success'))
                     <div class="alert alert-success col-lg-6 mt-3" role="alert">
                         {{ session('success') }}
-                    </div>
+                    </div>å
                 @endif
                 <!-- error alert -->
                 @if (session('error'))
