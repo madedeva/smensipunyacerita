@@ -94,17 +94,31 @@ class UserController extends Controller
     public function import_excel(Request $request) 
 	{
         Excel::import(new UserImport, $request->file('file')->store('file_import'));
-        // return back();
-		// $this->validate($request, [
-		// 	'file' => 'required|mimes:csv,xls,xlsx'
-		// ]);
 
-		// $file = $request->file('file');
-		// $nama_file = rand().$file->getClientOriginalName();
-		// $file->move('file_import',$nama_file);
+        // $duplicate = User::select('email')->groupBy('email')->havingRaw('count(*) > 1')->get();
+        
+        // if($duplicate){
+        //     return redirect()->route('admin.users.index')->with('error', 'User gagal diimport, email sudah terdaftar');
+        // }else{
+        //     Excel::import(new UserImport, $request->file('file')->store('file_import'));
+        //     return redirect()->route('admin.users.index')->with('success', 'User berhasil diimport');
+        // }
 
-        // Excel::import(new UserImport, public_path('/file_import/'.$nama_file));
+		// return redirect()->route('admin.users.index')->with('success', 'User berhasil diimport');
 
-		return redirect()->route('admin.users.index')->with('success', 'User berhasil diimport');
+        // $request->validate([
+        //     'file' => 'required|mimes:xlsx,xls',
+        // ]);
+
+        // // try {
+        //     Excel::import(new UserImport, $request->file('file'));
+        // } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+        //     $failures = $e->failures();
+
+        //     // return error message
+        //     return redirect()->route('admin.users.index')->with('error', $failures);
+        // }
+    
+        return redirect()->route('admin.users.index')->with('success', 'User berhasil diimport');
 	}
 }

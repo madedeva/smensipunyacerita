@@ -123,8 +123,8 @@ select:focus{
                 <img src="https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                     class="img" alt="">
                 <div class="pl-sm-4 pl-2" id="img-section">
-                    <b>I Made Deva Kerti Wijaya</b>
-                    <p>deva@smensi.sch.id</p>
+                    <b>{{ Auth::user()->name }}</b>
+                    <p>{{ Auth::user()->email }}</p>
                     <p></p>
                 </div>
             </div>

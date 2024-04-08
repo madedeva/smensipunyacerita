@@ -69,11 +69,11 @@ class BlogController extends Controller
         ]);
 
         if($blog){
-            //redirect dengan pesan sukses
-            return redirect()->route('admin.blog.index')->with(['success' => 'Data Berhasil Disimpan!']);
+            return redirect()->route('admin.blog.index')->with(
+                ['success' => 'Data Berhasil Disimpan!']);
         }else{
-            //redirect dengan pesan error
-            return redirect()->route('admin.blog.index')->with(['error' => 'Data Gagal Disimpan!']);
+            return redirect()->route('admin.blog.index')->with(
+                ['error' => 'Data Gagal Disimpan!']);
         }
         
     }
@@ -124,11 +124,11 @@ class BlogController extends Controller
         ]);
 
         if($blog){
-            //redirect dengan pesan sukses
-            return redirect()->route('admin.blog.index')->with(['success' => 'Data Berhasil Diupdate!']);
+            return redirect()->route('admin.blog.index')->with(
+                ['success' => 'Data Berhasil Diupdate!']);
         }else{
-            //redirect dengan pesan error
-            return redirect()->route('admin.blog.index')->with(['error' => 'Data Gagal Diupdate!']);
+            return redirect()->route('admin.blog.index')->with(
+                ['error' => 'Data Gagal Diupdate!']);
         }
     }
 
@@ -145,11 +145,11 @@ class BlogController extends Controller
         $blog->delete();
 
         if($blog){
-            //redirect dengan pesan sukses
-            return redirect()->route('admin.blog.index')->with(['success' => 'Data Berhasil Dihapus!']);
+            return redirect()->route('admin.blog.index')->with(
+                ['success' => 'Data Berhasil Dihapus!']);
         }else{
-            //redirect dengan pesan error
-            return redirect()->route('admin.blog.index')->with(['error' => 'Data Gagal Dihapus!']);
+            return redirect()->route('admin.blog.index')->with(
+                ['error' => 'Data Gagal Dihapus!']);
         }
     }
     

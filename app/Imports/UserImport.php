@@ -22,4 +22,23 @@ class UserImport implements ToModel
               'role'     => $row[4],
         ]);
     }
+
+    public function rules(): array
+    {
+        return [
+            '2' => [
+                'required',
+                'email',
+                Rule::unique('users', 'email'),
+            ],
+        ];
+    }
+
+    public function customValidationMessages()
+    {
+        return [
+            '2.unique' => 'The email address already exists.',
+        ];
+    }
+
 }
